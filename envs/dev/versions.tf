@@ -9,13 +9,14 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 
   default_tags {
     tags = {
-      Owner     = "Jason-Sefia"
-      ManagedBy = "terraform"
-      Project   = "atlas"
+      Owner       = "Jason-Sefia"
+      ManagedBy   = "terraform"
+      Project     = "atlas"
+      Environment = var.environment
     }
   }
 }

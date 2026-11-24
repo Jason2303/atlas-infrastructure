@@ -21,13 +21,5 @@ resource "aws_budgets_budget" "monthly_cost" {
     subscriber_sns_topic_arns = [aws_sns_topic.budget_alerts.arn]
   }
 
-  notification {
-    comparison_operator       = "GREATER_THAN"
-    threshold                 = 1
-    threshold_type            = "ABSOLUTE_VALUE"
-    notification_type         = "ACTUAL"
-    subscriber_sns_topic_arns = [aws_sns_topic.budget_alerts.arn]
-  }
-
   depends_on = [aws_sns_topic_policy.budget_alerts]
 }
